@@ -6,21 +6,34 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec ts-node -- src/index.ts",
-    "lint": "tslint 'src/**/*.ts' -t verbose --force"
+    "lint": "tslint 'src/**/*.ts' -t verbose --force",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "typescript": "^2.6.2",
+    "path": "^0.12.7",
+    "morgan": "^1.9.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.0",
+    "@types/jest": "^22.0.1",
     "@types/morgan": "^1.7.35",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
-    "morgan": "^1.9.0",
+    "jest": "^22.1.4",
     "nodemon": "^1.14.11",
-    "path": "^0.12.7",
     "prettier": "^1.10.2",
+    "supertest": "^3.0.0",
+    "ts-jest": "^22.0.1",
     "ts-node": "^4.1.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
+    "tslint": "^5.9.1"
   },
-  "dependencies": {}
+  "jest": {
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": ["**/src/**/*.spec.(ts|tsx|js)"]
+  }
 }
