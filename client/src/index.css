@@ -3,3 +3,82 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.app {
+  text-align: center;
+}
+
+.app-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.app-header {
+  background-color: #bf3f71;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.app-title {
+  font-size: 1.5em;
+}
+
+.app-intro {
+  font-size: large;
+}
+
+.alerts--fluid {
+  width: 100%;
+}
+
+.alerts__header {
+  color: #bf3f71;
+}
+
+.alerts__content {
+  background-color: #fff8f7;
+  text-align: justify;
+}
+
+.alert {
+  /* margin-top: 30px; */
+  border-bottom: 15px solid white;
+}
+
+.alert__title {
+  color: #bf3f71;
+  border-bottom: 1px solid #82c1cf;
+  text-align: left;
+}
+
+.alert__date {
+  color: #ffffff;
+  /* font-size: xx-large; */
+}
+
+.alert__date--box {
+  align-content: center;
+  background-color: #82c1cf;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #fff;
+}
+
+.alert__description {
+  color: #184954;
+}
+
+/* blue #82c1cf */
+/* pink #bf3f71 */
+/* dark-blue #184954 */
+/* #fff8f7 */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
