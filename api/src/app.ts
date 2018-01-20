@@ -1,3 +1,4 @@
+import * as cors from "cors";
 import * as dotenv from "dotenv";
 import * as express from "express";
 import * as morgan from "morgan";
@@ -13,6 +14,13 @@ app.use(
     `:remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms`
   )
 );
+
+const corsOptions = {
+  origin: true,
+  optionsSucccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 app.use("/api/alerts", alerts);
 

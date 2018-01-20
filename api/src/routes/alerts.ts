@@ -18,6 +18,15 @@ route.get("/", (req: Request, res: Response) => {
               "in the evening of 16th January 2018. During the night, snowstorm will spread" +
               "in many regions of Lithuania, southeast wind gusts may reach 15-20 m/s." +
               "Please protect yourself and property as well as warn others. For more information visit www.vpgt.lt , www.lt72.lt and www.meteo.lt."
+          },
+          {
+            title: "Message 2",
+            date: "2018-01-10",
+            description:
+              "The Fire and Rescue Department informs that snowstorm is foreseen" +
+              "in the evening of 16th January 2018. During the night, snowstorm will spread" +
+              "in many regions of Lithuania, southeast wind gusts may reach 15-20 m/s." +
+              "Please protect yourself and property as well as warn others. For more information visit www.vpgt.lt , www.lt72.lt and www.meteo.lt."
           }
         ]
       };
