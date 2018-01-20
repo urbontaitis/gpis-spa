@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { Header, Image, Container } from "semantic-ui-react";
 import { AlertObj } from "./components/alerts/Alert";
 import Alerts from "./components/alerts/Alerts";
 import api from "./api";
@@ -39,14 +39,14 @@ class App extends React.Component<AppProps, AppState> {
     const { isLoading, alerts } = this.state;
 
     return (
-      <div className="app">
-        <header className="app-header">
-          <img src={logo} className="app-logo" alt="logo" />
-          <h1 className="app-title">GPIS - unofficial</h1>
-        </header>
-        <div className="app-intro">
+      <div>
+        <Header as="h1" image={true}>
+          <Image src={logo} />
+          <Header.Content>GPIS - unofficial</Header.Content>
+        </Header>
+        <Container>
           <Alerts isLoading={isLoading} alerts={alerts} />
-        </div>
+        </Container>
       </div>
     );
   }
