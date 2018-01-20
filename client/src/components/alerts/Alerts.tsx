@@ -15,7 +15,7 @@ const Alerts: React.SFC<AlertsProps> = ({ isLoading, alerts }) => (
         ? "Loading"
         : alerts !== undefined
           ? alerts.map((alert: AlertObj) => (
-              <Alert key={alert.title} alert={alert} />
+              <Alert key={alert.id} alert={alert} />
             ))
           : "No alerts"}
     </div>

@@ -1,9 +1,11 @@
 import * as React from "react";
 
 export interface AlertObj {
+  id: string;
   title: string;
   date: string;
   description: string;
+  url: string;
 }
 
 export interface Alerts {
