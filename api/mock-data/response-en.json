@@ -1,0 +1,65 @@
+{
+  "alerts": [
+    {
+      "title": "Message",
+      "date": "  2018-01-16\r\n\t\t",
+      "description":
+        "The Fire and Rescue Department informs that snowstorm is foreseen in the evening of 16th January 2018. During the night, snowstorm will spread in many regions of Lithuania, southeast wind gusts may reach 15-20 m/s. Please protect yourself and property as well as warn others. For more information visitRead more",
+      "url": "/go.php/eng/Message/202"
+    },
+    {
+      "title": "Message",
+      "date": "  2017-12-07\r\n\t\t",
+      "description":
+        "The Fire and Rescue Department informs that glazed frost will occur during the night of the 8th of December as well as in the morning of the 8th of December in the Southeast of Lithuania.  For more information please visit  and .Read more",
+      "url": "/go.php/eng/Message/198"
+    },
+    {
+      "title": "Message",
+      "date": "  2017-08-01\r\n\t\t",
+      "description":
+        "The Fire and Rescue Department under the Ministry of the Interior informs that on the 2nd of August many regions of Lithuania will expect severe storm: torrential rain which may be heavy and thunderstorms. In some regions hail and squall will appear. During the squall, south and southwest wind gusts may reach 15–20 m/s at night, while during the day it may reach 17–22 m/s. Please protect yourself and property as well as warn others. For more information visit Read more",
+      "url": "/go.php/eng/Message/183"
+    },
+    {
+      "title": "Message",
+      "date": "  2017-06-16\r\n\t\t",
+      "description":
+        "Council of Lazdijai district informs that on June 16th - 18th military exercise “Iron Wolf  2017” will be conducted.  Military actions will take place in all Lazdijai district during  light/dark time of the day. Participants may be using blank ammunition, smoke grenades, imitation charges, signal flares.Read more",
+      "url": "/go.php/eng/Message/169"
+    },
+    {
+      "title": "Message",
+      "date": "  2017-06-13\r\n\t\t",
+      "description":
+        "The Fire and Rescue Department under the Ministry of the Interior informs you that today (13-th of June) western wind gusts will reach 15-21 m/s. Protect yourself and your property, warn others. More information at Read more",
+      "url": "/go.php/eng/Message/166"
+    },
+    {
+      "title": "Message",
+      "date": "  2017-06-01\r\n\t\t",
+      "description":
+        "The Fire and Rescue Department informs you that public warning and information system is being checked. Stay calm. For more information visit Read more",
+      "url": "/go.php/eng/Message/161"
+    },
+    {
+      "title": "Message",
+      "date": "  2016-06-17\r\n\t\t",
+      "description": "www.vpgt.ltwww.meteo.ltRead more",
+      "url": "/go.php/eng/Message/136"
+    },
+    {
+      "title": "Message",
+      "date": "  2016-02-02\r\n\t\t",
+      "description": "Fire and Rescue Department informs you that iRead more",
+      "url": "/go.php/eng/Message/129"
+    },
+    {
+      "title": "Message",
+      "date": "  2016-02-01\r\n\t\t",
+      "description":
+        "Fire and Rescue Department informs you that in the night of the 2-nd of February the speed of south westerly and western wind can reach 15–20 m/s, on the sea coast it can reach up to 22 m/s. Strong winds will persist through the day. In some areas wind gusts are expected to be up to 25 m/s. Protect yourself and your property, warn others. For more information visit Read more",
+      "url": "/go.php/eng/Message/126"
+    }
+  ]
+}

@@ -1,72 +1,216 @@
 import { Request, Response, Router } from "express";
+import * as request from "request-promise";
+import * as uuid from "uuid";
 
 const route: Router = Router();
 
 route.get("/", (req: Request, res: Response) => {
-  const { lang } = req.query;
-  let result = {};
+  const responseResult = [];
+  // http://gpis.vpgt.lt/go.php/eng/Sent-messages/301/
+  // http://gpis.vpgt.lt/go.php/lit/Issiusti-pranesimai/300
+  // http://gpis.vpgt.lt/go.php/rus/Otpravl-soobshtenija/275/
+  request
+    .get("http://localhost:8000")
+    // tslint:disable-next-line:arrow-parens
+    .then(result => {
+      // tslint:disable-next-line:no-console
+      console.log("Started to parse");
+      const htmlParser = require("htmlparser2");
+      const handler = new htmlParser.DomHandler((error, dom) => {
+        if (error) {
+          // tslint:disable-next-line:no-console
+          console.error(`Klaida: ${error}`);
+        } else {
+          // tslint:disable-next-line:no-console
+          console.info(dom);
+          dom.forEach(html => {
+            if (html.name === "html") {
+              html.children.forEach(body => {
+                if (body.name === "body") {
+                  body.children.forEach(page => {
+                    if (
+                      page.name === "div" &&
+                      page.attribs !== undefined &&
+                      page.attribs.id === "page"
+                    ) {
+                      page.children.forEach(contents => {
+                        if (
+                          contents.name === "div" &&
+                          contents.attribs.id === "contents"
+                        ) {
+                          contents.children.forEach(middleSide => {
+                            if (
+                              middleSide.name === "div" &&
+                              middleSide.attribs.class === "middle_side"
+                            ) {
+                              middleSide.children.forEach(articleList => {
+                                if (
+                                  articleList.name === "div" &&
+                                  articleList.attribs.id === "v_article_list"
+                                ) {
+                                  articleList.children.forEach(
+                                    articleBlocks => {
+                                      if (
+                                        articleBlocks.name === "div" &&
+                                        articleBlocks.attribs.class ===
+                                          "article_block"
+                                      ) {
+                                        articleBlocks.children.forEach(
+                                          articleMainBlock => {
+                                            if (
+                                              articleMainBlock.name === "div" &&
+                                              articleMainBlock.attribs.class ===
+                                                "artivle_list_main_block"
+                                            ) {
+                                              let article = {
+                                                id: uuid.v4(),
+                                                title: "",
+                                                date: "",
+                                                description: "",
+                                                url: ""
+                                              };
+                                              articleMainBlock.children.forEach(
+                                                blocks => {
+                                                  if (
+                                                    blocks.name === "div" &&
+                                                    blocks.attribs.class ===
+                                                      "artivle_list_article_name"
+                                                  ) {
+                                                    blocks.children.forEach(
+                                                      name => {
+                                                        if (
+                                                          name.type ===
+                                                            "text" &&
+                                                          name.next === null
+                                                        ) {
+                                                          article.date =
+                                                            name.data;
+                                                        }
+                                                        if (
+                                                          name.name === "a" &&
+                                                          name.attribs.class ===
+                                                            "article-list"
+                                                        ) {
+                                                          article.title =
+                                                            name.children[0].data;
+                                                          article.url =
+                                                            name.attribs.href;
+                                                        }
+                                                      }
+                                                    );
+                                                  }
+                                                  if (
+                                                    blocks.name === "div" &&
+                                                    blocks.attribs.class ===
+                                                      "artivle_list_article_header"
+                                                  ) {
+                                                    let description = "";
+                                                    blocks.children.forEach(
+                                                      desc => {
+                                                        if (
+                                                          desc.children !==
+                                                          undefined
+                                                        ) {
+                                                          desc.children.forEach(
+                                                            descObj => {
+                                                              if (
+                                                                descObj.type !==
+                                                                "text"
+                                                              ) {
+                                                                if (
+                                                                  descObj
+                                                                    .children[0] !==
+                                                                    undefined &&
+                                                                  descObj
+                                                                    .children[0]
+                                                                    .type ===
+                                                                    "tag"
+                                                                ) {
+                                                                  descObj.children[0].children.forEach(
+                                                                    element => {
+                                                                      if (
+                                                                        element.type ===
+                                                                        "text"
+                                                                      ) {
+                                                                        description +=
+                                                                          element.data;
+                                                                      } else {
+                                                                        // tslint:disable-next-line:no-console
+                                                                        console.log(
+                                                                          element
+                                                                        );
+                                                                      }
+                                                                    }
+                                                                  );
+                                                                }
+                                                                if (
+                                                                  descObj
+                                                                    .children[0] !==
+                                                                    undefined &&
+                                                                  descObj
+                                                                    .children[0]
+                                                                    .type ===
+                                                                    "text"
+                                                                ) {
+                                                                  description +=
+                                                                    descObj
+                                                                      .children[0]
+                                                                      .data;
+                                                                }
+                                                              }
+                                                              // jei neturi spano
+                                                              if (
+                                                                descObj.type ===
+                                                                "text"
+                                                              ) {
+                                                                description +=
+                                                                  descObj.data;
+                                                              }
+                                                            }
+                                                          );
+                                                        } else {
+                                                          // tslint:disable-next-line:no-console
+                                                          // console.error(desc);
+                                                        }
+                                                      }
+                                                    );
+                                                    article.description = description;
+                                                  }
+                                                }
+                                              );
+                                              responseResult.push(article);
+                                            }
+                                          }
+                                        );
+                                      }
+                                    }
+                                  );
+                                }
+                              });
+                            }
+                          });
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
 
-  switch (lang) {
-    case "en":
-      result = {
-        alerts: [
-          {
-            title: "Message",
-            date: "2018-01-16",
-            description:
-              "The Fire and Rescue Department informs that snowstorm is foreseen" +
-              "in the evening of 16th January 2018. During the night, snowstorm will spread" +
-              "in many regions of Lithuania, southeast wind gusts may reach 15-20 m/s." +
-              "Please protect yourself and property as well as warn others. For more information visit www.vpgt.lt , www.lt72.lt and www.meteo.lt."
-          },
-          {
-            title: "Message 2",
-            date: "2018-01-10",
-            description:
-              "The Fire and Rescue Department informs that snowstorm is foreseen" +
-              "in the evening of 16th January 2018. During the night, snowstorm will spread" +
-              "in many regions of Lithuania, southeast wind gusts may reach 15-20 m/s." +
-              "Please protect yourself and property as well as warn others. For more information visit www.vpgt.lt , www.lt72.lt and www.meteo.lt."
-          }
-        ]
-      };
-      break;
-    case "lt":
-      result = {
-        alerts: [
-          {
-            title: "Pranešimas",
-            date: "2018-01-16",
-            description:
-              "PAGD prie VRM informuoja, kad sausio 16-osios vakare, pradedant vakariniais" +
-              " rajonais kils pūga. Naktį iš sausio 16-osios į 17-ąją sningant ir pučiant" +
-              " stipriam pietryčių vėjui (gūsiai – 15–20 m/s) pūga numatoma daugelyje rajonų." +
-              "Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau informacijos rasite www.vpgt.lt , www.lt72.lt  ir www.meteo.lt."
-          }
-        ]
-      };
-      break;
-    case "ru":
-      result = {
-        alerts: [
-          {
-            title: "Cообщениe",
-            date: "2018-01-16",
-            description:
-              "Департамент пожарной безопасности и спасения при МВД информирует, " +
-              "что 16-ого января вечером начиная с западных районов поднимется метель." +
-              " Ночью, метель с юго-восточным ветром (порывы которого будут достигать 15–20 м/с)" +
-              " пройдёт по многим районам Литвы. Просим позаботиться о своей безопасности и своём " +
-              "имуществе. Предупредите окружающих. Более подробная информация на сайтах www.vpgt.lt , www.lt72.lt и www.meteo.lt."
-          }
-        ]
-      };
-      break;
-    default:
-      result = {};
-  }
-
-  res.json(result);
+      const parser = new htmlParser.Parser(handler, {
+        decodeEntities: true,
+        normalizeWhitespace: true
+      });
+      // parser.parseChunk(result);
+      parser.write(result);
+      parser.end();
+      // tslint:disable-next-line:no-console
+      console.log("Ended to parse");
+      res.send({ alerts: responseResult });
+    });
 });
 
 export default route;

@@ -1,0 +1,73 @@
+{
+  "alerts": [
+    {
+      "title": "Pranešimas",
+      "date": "  2018-01-16\r\n\t\t",
+      "description":
+        "PAGD prie VRM informuojakad sausio 16-osios vakare, pradedant vakariniais rajonais kils pūga. Naktį iš sausio 16-osios į 17-ąją sningant ir pučiant stipriam pietryčių vėjui (gūsiai – 15–20 m/s) pūga numatoma daugelyje rajonų. Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau informacijos rasite www.vpgt.lt , www.lt72.lt  ir www.meteo.lt.Plačiau",
+      "url": "/go.php/lit/Pranesimas/204"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-12-12\r\n\t\t",
+      "description":
+        "Priešgaisrinės apsaugos ir gelbėjimo departamentas informuoja, kad naktį iš gruodžio 12-os į 13-ą vakarų, pietvakarių vėjas vakariniuose rajonuose sieks 23-25 m/s. Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau informacijos www.vpgt.lt ir www.lt72.ltPlačiau",
+      "url": "/go.php/lit/Pranesimas/200"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-12-07\r\n\t\t",
+      "description": "www.vpgt.ltwww.lt72.ltPlačiau",
+      "url": "/go.php/lit/Pranesimas/197"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-11-10\r\n\t\t",
+      "description":
+        "Priešgaisrinės apsaugos ir gelbėjimo departamentas informuoja, kad lapkričio 11-ą dieną vakariniuose rajonuose pietvakarių, vakarų vėjo gūsiai sieks 21-25 m/s. Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau infoPlačiau",
+      "url": "/go.php/lit/Pranesimas/196"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-10-29\r\n\t\t",
+      "description":
+        "Priešgaisrinės apsaugos ir gelbėjimo departamentas informuoja, kad spalio 29-ą ir 30-ą dienomis šiaurės vakarų vėjo gūsiai pajūryje sieks 20-25 m/s. Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau informacijos www.vpgt.lt ir www.meteo.ltPlačiau",
+      "url": "/go.php/lit/Pranesimas/195"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-10-25\r\n\t\t",
+      "description":
+        "Priešgaisrinės apsaugos ir gelbėjimo departamentas informuoja, kad naktį iš spalio 25-os į 26-ą vakarų, šiaurės vakarų vėjo gūsiai vakariniuose rajonuose sieks 21–23 m/s. Pasirūpinkite savo gyvybės ir turto saugumu, perspėkite kitus. Daugiau informacijos www.vpgt.lt ir www.meteo.ltPlačiau",
+      "url": "/go.php/lit/Pranesimas/194"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-10-12\r\n\t\t",
+      "description":
+        "Priešgaisrinės apsaugos ir gelbėjimo departamentas prie VRM informuoja, kad spalio 12-osios dieną vėjo gūsiai sieks 15-20m/s, vakare pajūryje iki 22 m/s. Spalio 13 d. vakarų, šiaurės vakarų vėjo gūsiai 15-20 m/s išplis į daugelį šalies rajonų, pajūryje sustiprės iki 25 m/s. Daugiau informacijos rasite Plačiau",
+      "url": "/go.php/lit/Pranesimas/192"
+    },
+    {
+      "title":
+        "Informacija Vilniaus, Kauno, Marijampolės, Alytaus apskr. gyventojams",
+      "date": "  2017-09-23\r\n\t\t",
+      "description": "",
+      "url":
+        "/go.php/lit/Informacija-Vilniaus-Kauno-Marijampoles-Alytaus-apskr-gyventojams/191"
+    },
+    {
+      "title": "Informacija Kelmės, Raseinių, Jurbarko, Šilalės r. gyventojams",
+      "date": "  2017-09-23\r\n\t\t",
+      "description": "",
+      "url":
+        "/go.php/lit/Informacija-Kelmes-Raseiniu-Jurbarko-Silales-r-gyventojams/190"
+    },
+    {
+      "title": "Pranešimas",
+      "date": "  2017-09-18\r\n\t\t",
+      "description": "PAGD prie VRM informuoja, kad Plačiau",
+      "url": "/go.php/lit/Pranesimas/188"
+    }
+  ]
+}
