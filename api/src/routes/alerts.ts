@@ -5,12 +5,18 @@ import * as uuid from "uuid";
 const route: Router = Router();
 
 route.get("/", (req: Request, res: Response) => {
+  const { lang } = req.query;
+
+  if (lang === undefined) {
+    res.json({});
+  }
+
   const responseResult = [];
   // http://gpis.vpgt.lt/go.php/eng/Sent-messages/301/
   // http://gpis.vpgt.lt/go.php/lit/Issiusti-pranesimai/300
   // http://gpis.vpgt.lt/go.php/rus/Otpravl-soobshtenija/275/
   request
-    .get("http://localhost:8000")
+    .get(`http://localhost:8000/${lang}.html`)
     // tslint:disable-next-line:arrow-parens
     .then(result => {
       // tslint:disable-next-line:no-console
