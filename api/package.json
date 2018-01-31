@@ -11,6 +11,7 @@
     "mock-data": "serve -p 8000 mock-data"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "domutils": "^1.6.2",
     "dotenv": "^4.0.0",
@@ -41,16 +42,10 @@
     "tslint": "^5.9.1"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "transform": {
       "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
     },
-    "testMatch": [
-      "**/src/**/*.spec.(ts|tsx|js)"
-    ]
+    "testMatch": ["**/src/**/*.spec.(ts|tsx|js)"]
   }
 }
