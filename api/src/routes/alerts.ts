@@ -6,17 +6,27 @@ import * as uuid from "uuid";
 
 const route: Router = Router();
 
+const apiUrl = (lang: string) => {
+  switch (lang) {
+    case "lt":
+      return "http://gpis.vpgt.lt/go.php/lit/Issiusti-pranesimai/300";
+    case "en":
+      return "http://gpis.vpgt.lt/go.php/eng/Sent-messages/301/";
+    case "ru":
+      return "http://gpis.vpgt.lt/go.php/rus/Otpravl-soobshtenija/275/";
+  }
+};
+
 route.get("/", (req: Request, res: Response) => {
   const { lang } = req.query;
 
   if (lang === undefined) {
     res.json({});
   }
-  // http://gpis.vpgt.lt/go.php/eng/Sent-messages/301/
-  // http://gpis.vpgt.lt/go.php/lit/Issiusti-pranesimai/300
-  // http://gpis.vpgt.lt/go.php/rus/Otpravl-soobshtenija/275/
+
+  // `http://localhost:8000/${lang}.html`
   request
-    .get(`http://localhost:8000/${lang}.html`)
+    .get(apiUrl(lang))
     .then((result: any) => {
       const $ = cheerio.load(result);
       const alertsToList = [];
