@@ -13,7 +13,7 @@ const Alerts: React.SFC<AlertsProps> = ({ isLoading, alerts }) => (
       ? "Loading"
       : alerts !== undefined
         ? alerts.map((alert: AlertObj) => (
-            <List.Item>
+            <List.Item key={alert.id}>
               <List.Content verticalAlign="middle">
                 <Alert key={alert.id} alert={alert} />
               </List.Content>
